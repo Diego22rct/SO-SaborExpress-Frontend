@@ -25,13 +25,13 @@ const products = [
 ---
 
 <Layout title="Sabor Express">
-	<main>
+	<main class="min-h-screen font-sans bg-gray-100 text-gray-800 p-4">
 		<p>
 			Bienvenido a Sabor Express, tu tienda en línea de comida favorita.
 		</p>
 		<section>
-			<h2>Productos Destacados</h2>
-			<div class="product-list">
+			<h2 class="text-2xl font-bold mb-4">Productos Destacados</h2>
+			<div class="flex flex-wrap gap-4 justify-center">
 				{
 					products.map((product) => (
 						<ProductCard
@@ -46,82 +46,3 @@ const products = [
 		</section>
 	</main>
 </Layout>
-
-<style>
-	body {
-		font-family: Arial, sans-serif;
-		background-color: #f8f9fa;
-		color: #333;
-		margin: 0;
-		padding: 0;
-	}
-	h1,
-	h2,
-	h3 {
-		color: #343a40;
-	}
-	p {
-		line-height: 1.6;
-	}
-	a {
-		color: #007bff;
-		text-decoration: none;
-	}
-	a:hover {
-		text-decoration: underline;
-	}
-	.product-list {
-		display: flex;
-		gap: 20px;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.product {
-		border: 1px solid #ccc;
-		padding: 10px;
-		border-radius: 5px;
-		text-align: center;
-		background-color: #fff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		width: 300px;
-	}
-	.product img {
-		max-width: 100%;
-		height: auto;
-		border-bottom: 1px solid #ccc;
-		margin-bottom: 10px;
-	}
-	.product h3 {
-		margin: 10px 0;
-	}
-	.product button {
-		background-color: #007bff;
-		color: white;
-		border: none;
-		padding: 10px 20px;
-		border-radius: 5px;
-		cursor: pointer;
-	}
-	.product button:hover {
-		background-color: #0056b3;
-	}
-
-	.categories {
-		list-style: none;
-		padding: 0;
-		display: flex;
-		justify-content: center;
-		gap: 15px;
-	}
-	.categories li {
-		margin: 5px 0;
-	}
-	.categories a {
-		text-decoration: none;
-		color: #007bff;
-		font-weight: bold;
-	}
-	.categories a:hover {
-		text-decoration: underline;
-	}
-</style>
