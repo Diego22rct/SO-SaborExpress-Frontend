@@ -2,26 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/product_card.astro";
 
-const products = [
-	{
-		title: "Producto 1",
-		description: "Descripción del producto 1.",
-		price: 10.0,
-		imageUrl: "/images/product1.jpg",
-	},
-	{
-		title: "Producto 2",
-		description: "Descripción del producto 2.",
-		price: 15.0,
-		imageUrl: "/images/product2.jpg",
-	},
-	{
-		title: "Producto 3",
-		description: "Descripción del producto 3.",
-		price: 20.0,
-		imageUrl: "/images/product3.jpg",
-	},
-];
+const products = await fetch("http://127.0.0.1:8000/products").then((res) =>
+	res.json(),
+);
 ---
 
 <Layout title="Sabor Express">
@@ -33,7 +16,7 @@ const products = [
 			<h2 class="text-2xl font-bold mb-4">Productos Destacados</h2>
 			<div class="flex flex-wrap gap-4 justify-center">
 				{
-					products.map((product) => (
+					products.map((product: any) => (
 						<ProductCard
 							title={product.title}
 							description={product.description}
