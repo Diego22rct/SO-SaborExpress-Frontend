@@ -3,6 +3,9 @@ const title = "Sabor Express";
 
 import CartFlyoutToggle from "../components/CartFlyoutToggle";
 import CartFlyout from "../components/CartFlyout";
+import { getCategories } from "../services/globalService";
+
+const categories: any = await getCategories();
 ---
 
 <!doctype html>
@@ -58,32 +61,15 @@ import CartFlyout from "../components/CartFlyout";
 				<section>
 					<h2 class="text-xl font-semibold mb-4">Categorías</h2>
 					<ul class="space-y-2">
-						<li>
-							<a
-								href="/categoria/entradas"
-								class="text-blue-600 hover:underline"
-								>Entradas</a
-							>
-						</li>
-						<li>
-							<a
-								href="/categoria/platos-principales"
-								class="text-blue-600 hover:underline"
-								>Platos Principales</a
-							>
-						</li>
-						<li>
-							<a
-								href="/categoria/postres"
-								class="text-blue-600 hover:underline">Postres</a
-							>
-						</li>
-						<li>
-							<a
-								href="/categoria/bebidas"
-								class="text-blue-600 hover:underline">Bebidas</a
-							>
-						</li>
+						{
+							categories.map((category: any) => (
+								<li>
+									<a href={`/menu/category/${category.id}`}>
+										{category.name}
+									</a>
+								</li>
+							))
+						}
 					</ul>
 				</section>
 			</div>
