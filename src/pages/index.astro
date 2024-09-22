@@ -1,19 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.jsx";
+import { getProducts } from "../services/globalService";
 
-/* const products = await fetch("http://127.0.0.1:8000/products").then((res) =>
-	res.json(),
-); */
-const products = [
-	{
-		id: 1,
-		title: "Producto 1",
-		description: "Descripción del producto 1",
-		price: 100,
-		imageUrl: "https://via.placeholder.com/150",
-	},
-];
+const products: any = await getProducts();
 ---
 
 <Layout title="Sabor Express">
@@ -29,7 +19,7 @@ const products = [
 						<ProductCard
 							client:load
 							id={product.id}
-							name={product.title}
+							name={product.name}
 							description={product.description}
 							price={product.price}
 							imageUrl={product.imageUrl}
