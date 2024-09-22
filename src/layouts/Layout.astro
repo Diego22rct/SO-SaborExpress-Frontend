@@ -1,5 +1,8 @@
 ---
 const title = "Sabor Express";
+
+import CartFlyoutToggle from "../components/CartFlyoutToggle";
+import CartFlyout from "../components/CartFlyout";
 ---
 
 <!doctype html>
@@ -17,7 +20,7 @@ const title = "Sabor Express";
 			<nav
 				class="container mx-auto px-4 py-2 flex items-center justify-between">
 				<h1 class="text-2xl font-bold">{title}</h1>
-				<ul class="flex space-x-4">
+				<ul class="flex space-x-4 items-center">
 					<li>
 						<a href="/" class="text-gray-600 hover:text-gray-900"
 							>Inicio</a
@@ -42,6 +45,9 @@ const title = "Sabor Express";
 							class="text-gray-600 hover:text-gray-900"
 							>Contacto</a
 						>
+					</li>
+					<li>
+						<CartFlyoutToggle client:load />
 					</li>
 				</ul>
 			</nav>
@@ -82,6 +88,7 @@ const title = "Sabor Express";
 				</section>
 			</div>
 			<div class="col-span-4 row-span-4">
+				<CartFlyout client:load />
 				<slot />
 			</div>
 			<footer class="col-span-5 row-start-5 bg-gray-800 text-white py-4">
